@@ -1,0 +1,24 @@
+{
+  "name": "food-festival",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "webpack": "webPack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-taghva/food-festival.git"
+  },
+  "author": "Ali Taghva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a-taghva/food-festival/issues"
+  },
+  "homepage": "https://github.com/a-taghva/food-festival#readme",
+  "devDependencies": {
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0"
+  }
+}
