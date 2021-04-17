@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "webpack": "webPack --watch",
+    "webpack": "webpack --watch",
     "build": "webpack"
   },
   "repository": {
@@ -22,6 +22,7 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "jquery": "^3.6.0"
   }
 }
