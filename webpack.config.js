@@ -13,6 +13,31 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js'
   },
+  module: {
+    rules: [
+      {
+        test: /\.jpg$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: "[path][name].[ext]",
+              // name(file) {
+              //   return "[path][name].[ext]"
+              // },
+              // publicPath: function(url) {
+              //   return url.replace("../", "/assets/")
+              // }
+              publicPath: './assets/img'
+            }
+          },
+          {
+            loader: 'image-webpack-loader'
+          }
+        ]
+      }
+    ]
+  },
   plugins: [
     new webpack.ProvidePlugin({
       $: "jquery",
@@ -20,7 +45,7 @@ module.exports = {
     }),
     new BundleAnalyzerPlugin({
       // the report outputs to and HTML file in dist folder, report.html
-      analyzerMode: "static",
+      analyzerMode: "disable",
       // set value to "disable" to temporarily stop the reporting 
     })
   ],
