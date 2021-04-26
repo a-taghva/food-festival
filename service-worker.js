@@ -1,5 +1,3 @@
-const { cache } = require("browserslist");
-
 const APP_PREFIX = "FoodFest-";
 const VERSION = "version_01";
 const CACHE_NAME = APP_PREFIX + VERSION;
@@ -43,3 +41,21 @@ self.addEventListener('activate', e => {
     })
   )
 });
+
+self.addEventListener('fetch', e => {
+  console.log('event: ' + e);
+  console.log('fetch request url: ' + e.request.url);
+  e.respondWith(
+    caches.match(e.request).then(request => {
+      console.log('request: ' + request);
+      if (request) {
+        console.log('responding with cache: ' + e.request.url);
+        return request;
+      } else {
+        console.log('file is not cached, fetching: ' + e.request.url);
+        return fetch(e.request);
+      }
+    })
+    // caches.match(e.request).then(request => request || fetch(e.request))
+  )
+})
